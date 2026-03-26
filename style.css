@@ -212,15 +212,17 @@ h2 {
 }
 
 .certificate-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    justify-items: center;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .certificate-card {
-    width: 180px;
-    height: 120px;
+    width: 200px;
+    height: 140px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 10px;
 }
