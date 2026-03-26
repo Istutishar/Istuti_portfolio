@@ -12,8 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 🌌 COOL FLOATING BACKGROUND */
-
+/* 🌌 BACKGROUND BLOBS */
 .background {
     position: fixed;
     width: 100%;
@@ -25,62 +24,49 @@ body {
 .background span {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    animation: float 20s infinite linear;
+    filter: blur(90px);
+    animation: float 20s infinite ease-in-out;
 }
 
-/* DIFFERENT BUBBLES */
-
 .background span:nth-child(1) {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background: rgba(168, 85, 247, 0.5);
     top: 10%;
     left: 10%;
-    animation-duration: 18s;
 }
 
 .background span:nth-child(2) {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     background: rgba(128, 0, 0, 0.5);
     top: 60%;
     left: 70%;
-    animation-duration: 22s;
 }
 
 .background span:nth-child(3) {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: rgba(168, 85, 247, 0.4);
     top: 40%;
     left: 30%;
-    animation-duration: 25s;
 }
 
 .background span:nth-child(4) {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
     background: rgba(128, 0, 0, 0.4);
     top: 80%;
     left: 20%;
-    animation-duration: 20s;
 }
-
-/* FLOAT ANIMATION */
 
 @keyframes float {
-    0% {
-        transform: translateY(0px) translateX(0px);
-    }
-    50% {
-        transform: translateY(-100px) translateX(80px);
-    }
-    100% {
-        transform: translateY(0px) translateX(0px);
-    }
+    0% { transform: translate(0,0); }
+    50% { transform: translate(100px, -120px); }
+    100% { transform: translate(0,0); }
 }
-/* NAVBAR */
+
+/* NAV */
 nav {
     display: flex;
     justify-content: space-between;
@@ -99,47 +85,55 @@ nav a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 100px 60px;
-}
-
-.hero-left {
-    max-width: 50%;
+    padding: 120px 80px;
 }
 
 .hero-left h1 {
-    font-size: 55px;
+    font-size: 70px;
     background: linear-gradient(270deg, #d8b4fe, #a855f7, #9333ea);
     -webkit-background-clip: text;
     color: transparent;
 }
 
 .hero-left p {
+    font-size: 22px;
     margin-top: 10px;
 }
 
 .tagline {
-    display: block;
+    font-size: 16px;
     margin-top: 10px;
     color: #c084fc;
-    font-size: 14px;
 }
 
 /* LOGO */
 .hero-right img {
-    width: 180px;
-    height: 180px;
+    width: 240px;
+    height: 240px;
     object-fit: contain;
     border-radius: 50%;
     background: white;
-    padding: 10px;
+    padding: 12px;
     box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+    transition: 0.3s;
+}
+
+.hero-right img:hover {
+    transform: scale(1.05);
+}
+
+/* HEADINGS */
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 /* ABOUT */
 .about-section {
     display: flex;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 60px;
 }
 
 .about-box {
@@ -147,27 +141,28 @@ nav a {
     padding: 30px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 15px;
-    text-align: center;
+}
+
+.about-box p {
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 /* SKILLS */
 .skills-section {
     text-align: center;
-    padding: 60px 20px;
-}
-
-.skills-container {
-    margin-top: 20px;
+    padding: 60px;
 }
 
 .skill-bubble {
     display: inline-block;
     margin: 10px;
-    padding: 10px 18px;
+    padding: 12px 22px;
     border-radius: 20px;
     border: 1px solid #a855f7;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 16px;
 }
 
 .skill-bubble:hover {
@@ -179,18 +174,18 @@ nav a {
 .popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
 }
 
 .popup-content {
     background: #111;
     padding: 30px;
     border-radius: 15px;
-    width: 300px;
+    width: 320px;
     margin: 150px auto;
     text-align: center;
 }
@@ -203,7 +198,7 @@ nav a {
 /* CERTIFICATES */
 .certificates-section {
     text-align: center;
-    padding: 60px 20px;
+    padding: 60px;
 }
 
 .certificate-grid {
@@ -214,20 +209,17 @@ nav a {
 }
 
 .certificate-card {
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 120px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* CONTACT */
 .contact-section {
     display: flex;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 60px;
 }
 
 .contact-box {
@@ -235,13 +227,12 @@ nav a {
     padding: 30px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 15px;
-    text-align: center;
 }
 
 input, textarea {
     width: 100%;
     margin: 10px 0;
-    padding: 10px;
+    padding: 12px;
     border-radius: 10px;
     border: none;
     background: #111;
@@ -254,12 +245,13 @@ button {
     border-radius: 20px;
     border: none;
     color: white;
-    cursor: pointer;
 }
+
+/* SCROLL ANIMATION */
 .hidden {
     opacity: 0;
     transform: translateY(50px);
-    transition: all 0.8s ease;
+    transition: 0.8s ease;
 }
 
 .show {
