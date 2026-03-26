@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+const form = document.getElementById("contact-form");
 
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    alert("Message sent successfully 💜");
+
+    form.reset();
+});
     function openSkill(skill) {
 
         const popup = document.getElementById("skill-popup");
