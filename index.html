@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="background">
     <span></span>
     <span></span>
     <span></span>
     <span></span>
 </div>
-<!-- NAVBAR -->
+
+<!-- NAV -->
 <nav>
     <h2>Istuti</h2>
     <div>
@@ -23,57 +25,71 @@
     </div>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
-
-    <!-- LEFT SIDE -->
     <div class="hero-left">
         <h1>Istuti Sharma</h1>
-
         <p>Cyber Security Student | Future Defender of Systems</p>
-
         <span class="tagline">
             I explore systems, break assumptions, and learn how to secure what others overlook.
         </span>
     </div>
 
-    <!-- RIGHT SIDE (LOGO) -->
     <div class="hero-right">
-        <img src="logo.png" alt="Kristu Jayanti Logo">
+        <img src="logo.png" alt="Logo">
     </div>
-
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section id="about" class="about-section hidden">
     <div class="about-box">
         <h2>About</h2>
         <p>
             I’m a BCA Cyber Security student learning how systems work, where they break, and how they can be made stronger.
-            What interests me isn’t just the code, but the logic behind it, the patterns, the flaws, and the possibilities.
-            I like looking beyond what’s visible, understanding what’s hidden, and turning that knowledge into something meaningful.
+            I like understanding patterns, questioning systems, and building stronger solutions.
         </p>
     </div>
 </section>
 
-<!-- SKILLS SECTION -->
+<!-- SKILLS -->
 <section id="skills" class="skills-section hidden">
-
     <h2>Skills</h2>
 
     <div class="skills-container">
-
         <div class="skill-bubble" onclick="openSkill('html')">HTML</div>
         <div class="skill-bubble" onclick="openSkill('css')">CSS</div>
         <div class="skill-bubble" onclick="openSkill('js')">JavaScript</div>
         <div class="skill-bubble" onclick="openSkill('node')">Node.js</div>
         <div class="skill-bubble" onclick="openSkill('git')">Git & GitHub</div>
-
     </div>
-
 </section>
 
-<!-- SKILL POPUP (hidden initially) -->
+<!-- CERTIFICATES -->
+<section id="certificates" class="certificates-section hidden">
+    <h2>Certificates</h2>
+
+    <div class="certificate-grid">
+        <div class="certificate-card">Certificate</div>
+        <div class="certificate-card">Certificate</div>
+        <div class="certificate-card">Certificate</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section hidden">
+    <div class="contact-box">
+        <h2>Contact</h2>
+
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</section>
+
+<!-- POPUP -->
 <div id="skill-popup" class="popup">
     <div class="popup-content">
         <span class="close" onclick="closePopup()">×</span>
@@ -82,41 +98,6 @@
     </div>
 </div>
 
-<!-- CERTIFICATES SECTION -->
-<section id="certificates" class="certificates-section hidden">
-
-    <h2>Certificates</h2>
-
-    <div class="certificate-grid">
-
-        <div class="certificate-card">Certificate 1</div>
-        <div class="certificate-card">Certificate 2</div>
-        <div class="certificate-card">Certificate 3</div>
-        <div class="certificate-card">Certificate 4</div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT SECTION -->
-<section id="contact" class="contact-section hidden">
-
-    <div class="contact-box">
-
-        <h2>Contact</h2>
-
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-
-    </div>
-
-</section>
-
 <script src="script.js"></script>
 
 </body>
-</html>
