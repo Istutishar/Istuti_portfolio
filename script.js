@@ -1,11 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
 const form = document.getElementById("contact-form");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    alert("Message sent successfully 💜");
+    const formData = {
+        name: form.querySelector("input[type='text']").value,
+        email: form.querySelector("input[type='email']").value,
+        message: form.querySelector("textarea").value
+    };
 
+    try {
+        const response = await fetch("http://localhost:3000/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.text();
+
+        alert("Message sent successfully 💜");
+
+        form.reset();
+
+    } catch (error) {
+        alert("Something went wrong 😢");
+    }
+});
     form.reset();
 });
     function openSkill(skill) {
