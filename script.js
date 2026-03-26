@@ -50,7 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+function openCert(src) {
+    const popup = document.getElementById("cert-popup");
+    const image = document.getElementById("cert-image");
 
+    popup.style.display = "block";
+    image.src = src;
+}
+
+function closeCert() {
+    document.getElementById("cert-popup").style.display = "none";
+}
     const hiddenElements = document.querySelectorAll(".hidden");
     hiddenElements.forEach(el => observer.observe(el));
 
