@@ -220,9 +220,9 @@ h2 {
     margin: 0 auto;
 }
 
-.certificate-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+.certificate-card {
+    width: 200px;
+    height: 140px;
 }
 
 /* CONTACT */
