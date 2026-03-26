@@ -1,50 +1,57 @@
-function openSkill(skill) {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const popup = document.getElementById("skill-popup");
-    const title = document.getElementById("skill-title");
-    const description = document.getElementById("skill-description");
+    function openSkill(skill) {
 
-    popup.style.display = "block";
+        const popup = document.getElementById("skill-popup");
+        const title = document.getElementById("skill-title");
+        const description = document.getElementById("skill-description");
 
-    if (skill === "html") {
-        title.innerText = "HTML";
-        description.innerText = "I learned HTML to structure web pages using semantic elements. I use it to build clean and organized layouts.";
-    }
+        popup.style.display = "block";
 
-    else if (skill === "css") {
-        title.innerText = "CSS";
-        description.innerText = "I use CSS to design layouts, colors, and animations, making websites visually appealing.";
-    }
-
-    else if (skill === "js") {
-        title.innerText = "JavaScript";
-        description.innerText = "I use JavaScript for interactivity, events, and dynamic behavior in websites.";
-    }
-
-    else if (skill === "node") {
-        title.innerText = "Node.js";
-        description.innerText = "I am learning Node.js to understand backend systems and server-side logic.";
-    }
-
-    else if (skill === "git") {
-        title.innerText = "Git & GitHub";
-        description.innerText = "I use GitHub to manage code, track changes, and host my projects.";
-    }
-}
-
-/* CLOSE POPUP */
-function closePopup() {
-    document.getElementById("skill-popup").style.display = "none";
-}
-
-/* SCROLL ANIMATION (THIS WAS MISSING) */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+        if (skill === "html") {
+            title.innerText = "HTML";
+            description.innerText = "I learned HTML to structure web pages using semantic elements.";
         }
-    });
-});
 
-const hiddenElements = document.querySelectorAll(".hidden");
-hiddenElements.forEach(el => observer.observe(el));
+        else if (skill === "css") {
+            title.innerText = "CSS";
+            description.innerText = "I use CSS to design layouts, colors, and animations.";
+        }
+
+        else if (skill === "js") {
+            title.innerText = "JavaScript";
+            description.innerText = "I use JavaScript for interactivity and dynamic content.";
+        }
+
+        else if (skill === "node") {
+            title.innerText = "Node.js";
+            description.innerText = "I am learning backend development using Node.js.";
+        }
+
+        else if (skill === "git") {
+            title.innerText = "Git & GitHub";
+            description.innerText = "I use GitHub to manage and showcase my projects.";
+        }
+    }
+
+    function closePopup() {
+        document.getElementById("skill-popup").style.display = "none";
+    }
+
+    // Make functions global (IMPORTANT)
+    window.openSkill = openSkill;
+    window.closePopup = closePopup;
+
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach(el => observer.observe(el));
+
+});
