@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Make functions global (IMPORTANT)
     window.openSkill = openSkill;
     window.closePopup = closePopup;
+    window.openCert = openCert;
+window.closeCert = closeCert;
 
     // Scroll animation
     const observer = new IntersectionObserver((entries) => {
