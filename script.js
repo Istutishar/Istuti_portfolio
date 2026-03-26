@@ -8,27 +8,27 @@ function openSkill(skill) {
 
     if (skill === "html") {
         title.innerText = "HTML";
-        description.innerText = "I learned HTML to structure web pages using semantic elements. I use it to build clean and organized layouts for websites.";
+        description.innerText = "I learned HTML to structure web pages using semantic elements. I use it to build clean and organized layouts.";
     }
 
     else if (skill === "css") {
         title.innerText = "CSS";
-        description.innerText = "I use CSS to design and style websites with layouts, colors, and animations. It helps me create visually appealing user interfaces.";
+        description.innerText = "I use CSS to design layouts, colors, and animations, making websites visually appealing.";
     }
 
     else if (skill === "js") {
         title.innerText = "JavaScript";
-        description.innerText = "I use JavaScript for interactivity like animations, events, and dynamic content. It allows me to make websites responsive and engaging.";
+        description.innerText = "I use JavaScript for interactivity, events, and dynamic behavior in websites.";
     }
 
     else if (skill === "node") {
         title.innerText = "Node.js";
-        description.innerText = "I am learning Node.js to understand backend development and server-side logic. It helps in building full-stack applications.";
+        description.innerText = "I am learning Node.js to understand backend systems and server-side logic.";
     }
 
     else if (skill === "git") {
         title.innerText = "Git & GitHub";
-        description.innerText = "I use Git and GitHub to manage my code, track changes, and collaborate. It also helps me host and showcase my projects.";
+        description.innerText = "I use GitHub to manage code, track changes, and host my projects.";
     }
 }
 
@@ -36,3 +36,15 @@ function openSkill(skill) {
 function closePopup() {
     document.getElementById("skill-popup").style.display = "none";
 }
+
+/* SCROLL ANIMATION (THIS WAS MISSING) */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach(el => observer.observe(el));
