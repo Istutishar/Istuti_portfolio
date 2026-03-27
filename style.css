@@ -191,18 +191,31 @@ h2 {
 }
 
 /* CERTIFICATES */
+/* CERTIFICATES GRID */
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* CERTIFICATE CARDS */
 .certificate-grid img {
-    width: 200px;
-    margin: 10px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+
+    border-radius: 12px;
     cursor: pointer;
-    border-radius: 10px;
     transition: 0.3s;
 }
 
+/* HOVER EFFECT */
 .certificate-grid img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
 }
-
 /* CONTACT */
 .contact-box {
     width: 400px;
