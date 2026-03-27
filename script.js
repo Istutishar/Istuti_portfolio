@@ -118,3 +118,41 @@ document.querySelectorAll("section").forEach(section => {
     section.classList.add("hidden");
     observer.observe(section);
 });
+// =========================
+// 📩 CONTACT FORM CONNECTION
+// =========================
+
+const form = document.getElementById("contact-form");
+
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const inputs = form.querySelectorAll("input, textarea");
+
+        const data = {
+            name: inputs[0].value,
+            email: inputs[1].value,
+            message: inputs[2].value
+        };
+
+        try {
+            const res = await fetch("http://localhost:3000/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.text();
+            alert(result);
+
+            form.reset();
+
+        } catch (err) {
+            console.error(err);
+            alert("Something went wrong");
+        }
+    });
+}
