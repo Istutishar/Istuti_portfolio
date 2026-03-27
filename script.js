@@ -1,3 +1,4 @@
+```javascript id="m3z7x9"
 // =========================
 // 🌟 SKILL DATA
 // =========================
@@ -5,28 +6,28 @@
 const skillsInfo = {
     html: {
         title: "HTML",
-        description: "I learned how to structure websites using semantic elements and build the foundation of web pages. I use it to create clean and organized layouts."
+        description: "I structure websites using semantic elements and build clean, organized layouts."
     },
     css: {
         title: "CSS",
-        description: "I learned styling, layouts, flexbox, and animations. I use it to design visually appealing and responsive websites."
+        description: "I design responsive layouts, animations, and modern UI using flexbox and styling techniques."
     },
     js: {
         title: "JavaScript",
-        description: "I learned how to add interactivity, handle events, and manipulate the DOM. I use it to build dynamic features like popups and animations."
+        description: "I create interactivity, handle events, and build dynamic features like popups and animations."
     },
     node: {
         title: "Node.js",
-        description: "I learned backend basics and how servers work. I use it to handle data and connect frontend with backend."
+        description: "I understand backend basics and how servers work to connect frontend with backend."
     },
     git: {
         title: "Git & GitHub",
-        description: "I learned version control, repositories, and collaboration. I use it to manage projects and track changes."
+        description: "I manage version control, track changes, and collaborate on projects efficiently."
     }
 };
 
 // =========================
-// 🎯 SKILL POPUP FUNCTION
+// 🎯 SKILL POPUP
 // =========================
 
 function openSkill(skill) {
@@ -44,7 +45,6 @@ function closePopup() {
     document.getElementById("skill-popup").style.display = "none";
 }
 
-
 // =========================
 // 🖼️ CERTIFICATE POPUP
 // =========================
@@ -61,12 +61,11 @@ function closeCert() {
     document.getElementById("cert-popup").style.display = "none";
 }
 
-
 // =========================
-// ❌ CLOSE ON OUTSIDE CLICK
+// ❌ CLOSE POPUPS ON OUTSIDE CLICK
 // =========================
 
-window.onclick = function(e) {
+window.addEventListener("click", function (e) {
     const skillPopup = document.getElementById("skill-popup");
     const certPopup = document.getElementById("cert-popup");
 
@@ -77,4 +76,52 @@ window.onclick = function(e) {
     if (e.target === certPopup) {
         certPopup.style.display = "none";
     }
-};
+});
+
+// =========================
+// 🌊 SCROLL REVEAL (FIXED)
+// =========================
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+
+hiddenElements.forEach((el) => {
+    observer.observe(el);
+});
+
+// =========================
+// ✨ OPTIONAL: SMOOTH SCROLL NAV
+// =========================
+
+document.querySelectorAll("nav a").forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+        target.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
+// =========================
+// 💌 CONTACT FORM (FRONTEND ONLY)
+// =========================
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    alert("Message sent successfully ✨ (frontend only)");
+
+    this.reset();
+});
+```
