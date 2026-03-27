@@ -189,24 +189,23 @@ h2 {
     transform: translateY(-5px);
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
-
-/* CERTIFICATES */
 /* CERTIFICATES GRID */
 .certificate-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 800px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-/* CERTIFICATE CARDS */
+/* CERTIFICATE CARDS (SMALL AGAIN) */
 .certificate-grid img {
-    width: 100%;
-    height: 180px;
+    width: 200px;
+    height: 140px;
     object-fit: cover;
 
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -214,7 +213,9 @@ h2 {
 /* HOVER EFFECT */
 .certificate-grid img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
 }
 /* CONTACT */
 .contact-box {
@@ -291,5 +292,19 @@ button {
 /* CERT IMAGE */
 #cert-image {
     width: 100%;
+    border-radius: 10px;
+}
+/* 🎓 BIG CERT POPUP */
+.cert-popup {
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* CERT IMAGE INSIDE POPUP */
+#cert-image {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
     border-radius: 10px;
 }
