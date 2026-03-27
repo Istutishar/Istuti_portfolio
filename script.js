@@ -1,171 +1,80 @@
 // =========================
-// 🌟 DATA (YOUR CONTENT)
+// 🌟 SKILL DATA
 // =========================
 
-const skillsData = [
-    {
-        name: "HTML",
-        learned: "I learned how to structure web pages using semantic elements and create clean layouts.",
-        usage: "I use it to build the foundation of websites and organize content properly."
+const skillsInfo = {
+    html: {
+        title: "HTML",
+        description: "I learned how to structure websites using semantic elements and build the foundation of web pages. I use it to create clean and organized layouts."
     },
-    {
-        name: "CSS",
-        learned: "I learned styling, layouts, flexbox, animations, and responsive design.",
-        usage: "I use it to make websites visually appealing and create modern UI designs."
+    css: {
+        title: "CSS",
+        description: "I learned styling, layouts, flexbox, and animations. I use it to design visually appealing and responsive websites."
     },
-    {
-        name: "JavaScript",
-        learned: "I learned how to add interactivity, handle events, and manipulate the DOM.",
-        usage: "I use it to make websites dynamic like popups, animations, and real-time updates."
+    js: {
+        title: "JavaScript",
+        description: "I learned how to add interactivity, handle events, and manipulate the DOM. I use it to build dynamic features like popups and animations."
     },
-    {
-        name: "Cybersecurity",
-        learned: "I learned about vulnerabilities, ethical hacking basics, and system protection.",
-        usage: "I use it to understand threats and build secure applications."
+    node: {
+        title: "Node.js",
+        description: "I learned backend basics and how servers work. I use it to handle data and connect frontend with backend."
+    },
+    git: {
+        title: "Git & GitHub",
+        description: "I learned version control, repositories, and collaboration. I use it to manage projects and track changes."
     }
-];
-
-const certData = [
-    {
-        name: "Ethical Hacking",
-        detail: "Learned penetration testing basics, vulnerabilities, and security practices."
-    },
-    {
-        name: "Web Development Bootcamp",
-        detail: "Covered full-stack basics including HTML, CSS, JavaScript and projects."
-    }
-];
-
-
-// =========================
-// 🎯 ELEMENTS
-// =========================
-
-const skillsBtn = document.getElementById("skillsBtn");
-const certBtn = document.getElementById("certBtn");
-
-const skillsPopup = document.getElementById("skillsPopup");
-const certPopup = document.getElementById("certPopup");
-
-const skillsList = document.getElementById("skillsList");
-const certList = document.getElementById("certList");
-
-// DETAIL POPUP
-const detailPopup = document.createElement("div");
-detailPopup.className = "popup";
-detailPopup.innerHTML = `
-    <div class="popup-content">
-        <span id="closeDetail">&times;</span>
-        <h2 id="detailTitle"></h2>
-        <p id="detailLearned"></p>
-        <p id="detailUsage"></p>
-    </div>
-`;
-document.body.appendChild(detailPopup);
-
-
-// =========================
-// 🚀 OPEN MAIN POPUPS
-// =========================
-
-skillsBtn.onclick = () => {
-    skillsPopup.style.display = "flex";
-    renderSkills();
 };
 
-certBtn.onclick = () => {
-    certPopup.style.display = "flex";
-    renderCertificates();
-};
-
-
 // =========================
-// ❌ CLOSE MAIN POPUPS
+// 🎯 SKILL POPUP FUNCTION
 // =========================
 
-document.getElementById("closeSkills").onclick = () => {
-    skillsPopup.style.display = "none";
-};
+function openSkill(skill) {
+    const popup = document.getElementById("skill-popup");
+    const title = document.getElementById("skill-title");
+    const desc = document.getElementById("skill-description");
 
-document.getElementById("closeCert").onclick = () => {
-    certPopup.style.display = "none";
-};
+    title.textContent = skillsInfo[skill].title;
+    desc.textContent = skillsInfo[skill].description;
 
+    popup.style.display = "flex";
+}
 
-// =========================
-// 🧠 RENDER SKILLS
-// =========================
-
-function renderSkills() {
-    skillsList.innerHTML = "";
-
-    skillsData.forEach(skill => {
-        const li = document.createElement("li");
-        li.textContent = skill.name;
-
-        li.style.cursor = "pointer";
-
-        li.onclick = () => {
-            openDetail(skill.name, skill.learned, skill.usage);
-        };
-
-        skillsList.appendChild(li);
-    });
+function closePopup() {
+    document.getElementById("skill-popup").style.display = "none";
 }
 
 
 // =========================
-// 📜 RENDER CERTIFICATES
+// 🖼️ CERTIFICATE POPUP
 // =========================
 
-function renderCertificates() {
-    certList.innerHTML = "";
+function openCert(src) {
+    const popup = document.getElementById("cert-popup");
+    const img = document.getElementById("cert-image");
 
-    certData.forEach(cert => {
-        const li = document.createElement("li");
-        li.textContent = cert.name;
+    img.src = src;
+    popup.style.display = "flex";
+}
 
-        li.style.cursor = "pointer";
-
-        li.onclick = () => {
-            openDetail(cert.name, cert.detail, "");
-        };
-
-        certList.appendChild(li);
-    });
+function closeCert() {
+    document.getElementById("cert-popup").style.display = "none";
 }
 
 
 // =========================
-// 💜 DETAIL POPUP FUNCTION
+// ❌ CLOSE ON OUTSIDE CLICK
 // =========================
 
-function openDetail(title, learned, usage) {
-    detailPopup.style.display = "flex";
+window.onclick = function(e) {
+    const skillPopup = document.getElementById("skill-popup");
+    const certPopup = document.getElementById("cert-popup");
 
-    document.getElementById("detailTitle").textContent = title;
-    document.getElementById("detailLearned").textContent = "What I learned: " + learned;
-
-    const usageEl = document.getElementById("detailUsage");
-
-    if (usage) {
-        usageEl.textContent = "How I use it: " + usage;
-    } else {
-        usageEl.textContent = "";
+    if (e.target === skillPopup) {
+        skillPopup.style.display = "none";
     }
-}
 
-
-// =========================
-// ❌ CLOSE DETAIL POPUP
-// =========================
-
-document.getElementById("closeDetail").onclick = () => {
-    detailPopup.style.display = "none";
-};
-
-window.onclick = (e) => {
-    if (e.target === skillsPopup) skillsPopup.style.display = "none";
-    if (e.target === certPopup) certPopup.style.display = "none";
-    if (e.target === detailPopup) detailPopup.style.display = "none";
+    if (e.target === certPopup) {
+        certPopup.style.display = "none";
+    }
 };
