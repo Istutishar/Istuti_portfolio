@@ -1,100 +1,171 @@
-// 🌌 Smooth Scroll for Navigation Links
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-        e.preventDefault();
+// =========================
+// 🌟 DATA (YOUR CONTENT)
+// =========================
 
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    });
-});
-
-
-// 🌟 Reveal Elements on Scroll
-const revealElements = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-
-    revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            el.classList.add("active");
-        }
-    });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-
-// 🎯 Simple Typewriter Effect (optional for hero text)
-const text = "Cybersecurity Enthusiast";
-let index = 0;
-const speed = 80;
-
-function typeWriter() {
-    const element = document.querySelector(".typewriter");
-
-    if (!element) return;
-
-    if (index < text.length) {
-        element.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, speed);
+const skillsData = [
+    {
+        name: "HTML",
+        learned: "I learned how to structure web pages using semantic elements and create clean layouts.",
+        usage: "I use it to build the foundation of websites and organize content properly."
+    },
+    {
+        name: "CSS",
+        learned: "I learned styling, layouts, flexbox, animations, and responsive design.",
+        usage: "I use it to make websites visually appealing and create modern UI designs."
+    },
+    {
+        name: "JavaScript",
+        learned: "I learned how to add interactivity, handle events, and manipulate the DOM.",
+        usage: "I use it to make websites dynamic like popups, animations, and real-time updates."
+    },
+    {
+        name: "Cybersecurity",
+        learned: "I learned about vulnerabilities, ethical hacking basics, and system protection.",
+        usage: "I use it to understand threats and build secure applications."
     }
+];
+
+const certData = [
+    {
+        name: "Ethical Hacking",
+        detail: "Learned penetration testing basics, vulnerabilities, and security practices."
+    },
+    {
+        name: "Web Development Bootcamp",
+        detail: "Covered full-stack basics including HTML, CSS, JavaScript and projects."
+    }
+];
+
+
+// =========================
+// 🎯 ELEMENTS
+// =========================
+
+const skillsBtn = document.getElementById("skillsBtn");
+const certBtn = document.getElementById("certBtn");
+
+const skillsPopup = document.getElementById("skillsPopup");
+const certPopup = document.getElementById("certPopup");
+
+const skillsList = document.getElementById("skillsList");
+const certList = document.getElementById("certList");
+
+// DETAIL POPUP
+const detailPopup = document.createElement("div");
+detailPopup.className = "popup";
+detailPopup.innerHTML = `
+    <div class="popup-content">
+        <span id="closeDetail">&times;</span>
+        <h2 id="detailTitle"></h2>
+        <p id="detailLearned"></p>
+        <p id="detailUsage"></p>
+    </div>
+`;
+document.body.appendChild(detailPopup);
+
+
+// =========================
+// 🚀 OPEN MAIN POPUPS
+// =========================
+
+skillsBtn.onclick = () => {
+    skillsPopup.style.display = "flex";
+    renderSkills();
+};
+
+certBtn.onclick = () => {
+    certPopup.style.display = "flex";
+    renderCertificates();
+};
+
+
+// =========================
+// ❌ CLOSE MAIN POPUPS
+// =========================
+
+document.getElementById("closeSkills").onclick = () => {
+    skillsPopup.style.display = "none";
+};
+
+document.getElementById("closeCert").onclick = () => {
+    certPopup.style.display = "none";
+};
+
+
+// =========================
+// 🧠 RENDER SKILLS
+// =========================
+
+function renderSkills() {
+    skillsList.innerHTML = "";
+
+    skillsData.forEach(skill => {
+        const li = document.createElement("li");
+        li.textContent = skill.name;
+
+        li.style.cursor = "pointer";
+
+        li.onclick = () => {
+            openDetail(skill.name, skill.learned, skill.usage);
+        };
+
+        skillsList.appendChild(li);
+    });
 }
 
-window.addEventListener("load", typeWriter);
 
+// =========================
+// 📜 RENDER CERTIFICATES
+// =========================
 
-// 🌌 Mouse Move Glow Effect (for background blobs)
-document.addEventListener("mousemove", (e) => {
-    const blobs = document.querySelectorAll(".blob");
+function renderCertificates() {
+    certList.innerHTML = "";
 
-    blobs.forEach(blob => {
-        const speed = blob.getAttribute("data-speed") || 20;
+    certData.forEach(cert => {
+        const li = document.createElement("li");
+        li.textContent = cert.name;
 
-        const x = (window.innerWidth - e.pageX * speed) / 100;
-        const y = (window.innerHeight - e.pageY * speed) / 100;
+        li.style.cursor = "pointer";
 
-        blob.style.transform = `translate(${x}px, ${y}px)`;
+        li.onclick = () => {
+            openDetail(cert.name, cert.detail, "");
+        };
+
+        certList.appendChild(li);
     });
-});
+}
 
 
-// 🔥 Navbar Shadow on Scroll
-window.addEventListener("scroll", () => {
-    const nav = document.querySelector("nav");
+// =========================
+// 💜 DETAIL POPUP FUNCTION
+// =========================
 
-    if (!nav) return;
+function openDetail(title, learned, usage) {
+    detailPopup.style.display = "flex";
 
-    if (window.scrollY > 50) {
-        nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
+    document.getElementById("detailTitle").textContent = title;
+    document.getElementById("detailLearned").textContent = "What I learned: " + learned;
+
+    const usageEl = document.getElementById("detailUsage");
+
+    if (usage) {
+        usageEl.textContent = "How I use it: " + usage;
     } else {
-        nav.style.boxShadow = "none";
+        usageEl.textContent = "";
     }
-});
-// 💜 POPUP FUNCTIONALITY
-const openBtn = document.getElementById("openPopup");
-const popup = document.getElementById("popup");
-const closeBtn = document.getElementById("closePopup");
-
-if (openBtn && popup && closeBtn) {
-    openBtn.addEventListener("click", () => {
-        popup.style.display = "flex";
-    });
-
-    closeBtn.addEventListener("click", () => {
-        popup.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-        if (e.target === popup) {
-            popup.style.display = "none";
-        }
-    });
 }
+
+
+// =========================
+// ❌ CLOSE DETAIL POPUP
+// =========================
+
+document.getElementById("closeDetail").onclick = () => {
+    detailPopup.style.display = "none";
+};
+
+window.onclick = (e) => {
+    if (e.target === skillsPopup) skillsPopup.style.display = "none";
+    if (e.target === certPopup) certPopup.style.display = "none";
+    if (e.target === detailPopup) detailPopup.style.display = "none";
+};
