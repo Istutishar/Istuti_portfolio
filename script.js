@@ -78,3 +78,23 @@ window.addEventListener("scroll", () => {
         nav.style.boxShadow = "none";
     }
 });
+// 💜 POPUP FUNCTIONALITY
+const openBtn = document.getElementById("openPopup");
+const popup = document.getElementById("popup");
+const closeBtn = document.getElementById("closePopup");
+
+if (openBtn && popup && closeBtn) {
+    openBtn.addEventListener("click", () => {
+        popup.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+}
