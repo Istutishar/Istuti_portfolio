@@ -1,97 +1,80 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const form = document.getElementById("contact-form");
-
-    // CONTACT FORM
-    form.addEventListener("submit", async function(e) {
+// 🌌 Smooth Scroll for Navigation Links
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
         e.preventDefault();
 
-        const formData = {
-            name: form.querySelector("input[type='text']").value,
-            email: form.querySelector("input[type='email']").value,
-            message: form.querySelector("textarea").value
-        };
-
-        try {
-            await fetch("http://localhost:3000/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
             });
-
-            alert("Message sent successfully 💜");
-            form.reset();
-
-        } catch (error) {
-            alert("Something went wrong 😢");
         }
     });
-
-    // SCROLL ANIMATION
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    });
-
-    const hiddenElements = document.querySelectorAll(".hidden");
-    hiddenElements.forEach(el => observer.observe(el));
-
 });
 
-// SKILL POPUP
-function openSkill(skill) {
-    const popup = document.getElementById("skill-popup");
-    const title = document.getElementById("skill-title");
-    const description = document.getElementById("skill-description");
 
-    popup.style.display = "block";
+// 🌟 Reveal Elements on Scroll
+const revealElements = document.querySelectorAll(".reveal");
 
-    if (skill === "html") {
-        title.innerText = "HTML";
-        description.innerText = "I learned HTML to structure web pages.";
-    } 
-    else if (skill === "css") {
-        title.innerText = "CSS";
-        description.innerText = "I design layouts and animations.";
-    } 
-    else if (skill === "js") {
-        title.innerText = "JavaScript";
-        description.innerText = "I add interactivity to websites.";
-    } 
-    else if (skill === "node") {
-        title.innerText = "Node.js";
-        description.innerText = "I build backend systems.";
-    } 
-    else if (skill === "git") {
-        title.innerText = "Git & GitHub";
-        description.innerText = "I manage and track code.";
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+
+// 🎯 Simple Typewriter Effect (optional for hero text)
+const text = "Cybersecurity Enthusiast";
+let index = 0;
+const speed = 80;
+
+function typeWriter() {
+    const element = document.querySelector(".typewriter");
+
+    if (!element) return;
+
+    if (index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
     }
 }
 
-function closePopup() {
-    document.getElementById("skill-popup").style.display = "none";
-}
+window.addEventListener("load", typeWriter);
 
-// CERT POPUP
-function openCert(src) {
-    const popup = document.getElementById("cert-popup");
-    const image = document.getElementById("cert-image");
 
-    popup.style.display = "block";
-    image.src = src;
-}
+// 🌌 Mouse Move Glow Effect (for background blobs)
+document.addEventListener("mousemove", (e) => {
+    const blobs = document.querySelectorAll(".blob");
 
-function closeCert() {
-    document.getElementById("cert-popup").style.display = "none";
-}
+    blobs.forEach(blob => {
+        const speed = blob.getAttribute("data-speed") || 20;
 
-// GLOBAL ACCESS
-window.openSkill = openSkill;
-window.closePopup = closePopup;
-window.openCert = openCert;
-window.closeCert = closeCert;
+        const x = (window.innerWidth - e.pageX * speed) / 100;
+        const y = (window.innerHeight - e.pageY * speed) / 100;
+
+        blob.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+
+
+// 🔥 Navbar Shadow on Scroll
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector("nav");
+
+    if (!nav) return;
+
+    if (window.scrollY > 50) {
+        nav.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
+    } else {
+        nav.style.boxShadow = "none";
+    }
+});
