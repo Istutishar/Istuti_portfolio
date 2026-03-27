@@ -7,6 +7,14 @@
 </head>
 <body>
 
+<!-- 🌌 BACKGROUND BLOBS -->
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
 <!-- NAV -->
 <nav>
     <h2>Istuti</h2>
@@ -23,10 +31,14 @@
 <section class="hero">
     <div class="hero-left">
         <h1>Istuti Sharma</h1>
-        <p>Cyber Security Student</p>
+        <p>Cyber Security Student | Future Defender</p>
         <span class="tagline">
             I explore systems, break assumptions, and secure what others overlook.
         </span>
+    </div>
+
+    <div class="hero-right">
+        <img src="logo.png" alt="Logo">
     </div>
 </section>
 
@@ -34,7 +46,9 @@
 <section id="about" class="about-section">
     <div class="about-box">
         <h2>About</h2>
-        <p>I’m a BCA Cyber Security student learning systems and security.</p>
+        <p>
+            I’m a BCA Cyber Security student learning systems, vulnerabilities, and defense strategies.
+        </p>
     </div>
 </section>
 
@@ -54,15 +68,24 @@
 <!-- PROJECTS -->
 <section id="projects" class="projects-section">
     <h2>Projects</h2>
+
     <div class="projects-grid">
+
         <div class="project-card">
-            <h3>Password Checker</h3>
-            <p>Checks password strength.</p>
+            <h3>Password Strength Checker</h3>
+            <p>Analyzes password strength and improves security.</p>
         </div>
+
         <div class="project-card">
-            <h3>Portfolio</h3>
-            <p>This website.</p>
+            <h3>Portfolio Website</h3>
+            <p>Interactive personal portfolio with animations.</p>
         </div>
+
+        <div class="project-card">
+            <h3>Cyber Security Learning</h3>
+            <p>Exploring vulnerabilities and defense systems.</p>
+        </div>
+
     </div>
 </section>
 
@@ -73,6 +96,8 @@
     <div class="certificate-grid">
         <img src="cert1.png" onclick="openCert(this.src)">
         <img src="cert2.png" onclick="openCert(this.src)">
+        <img src="cert3.png" onclick="openCert(this.src)">
+        <img src="cert4.png" onclick="openCert(this.src)">
     </div>
 </section>
 
@@ -80,8 +105,9 @@
 <section id="contact" class="contact-section">
     <div class="contact-box">
         <h2>Contact</h2>
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
+
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
         <textarea placeholder="Message"></textarea>
         <button>Send</button>
     </div>
@@ -105,5 +131,6 @@
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
