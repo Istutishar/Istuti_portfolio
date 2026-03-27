@@ -1,4 +1,4 @@
-```css
+```css id="finalclean1"
 /* =========================
    RESET
 ========================= */
@@ -34,7 +34,6 @@ body {
     will-change: transform;
 }
 
-/* individual blobs */
 .background span:nth-child(1) {
     width: 350px;
     height: 350px;
@@ -67,7 +66,6 @@ body {
     left: 20%;
 }
 
-/* smooth floating */
 @keyframes float {
     0% { transform: translate(0, 0); }
     25% { transform: translate(80px, -60px); }
@@ -126,7 +124,6 @@ nav a:hover {
     color: #c084fc;
 }
 
-/* LOGO */
 .hero-right img {
     width: 280px;
     height: 280px;
@@ -288,7 +285,7 @@ button {
 }
 
 /* =========================
-   POPUPS (FIXED)
+   POPUP (FIXED CORRECTLY)
 ========================= */
 .popup {
     display: none;
@@ -299,7 +296,6 @@ button {
     top: 0;
     left: 0;
 
-    display: flex;
     justify-content: center;
     align-items: center;
 }
