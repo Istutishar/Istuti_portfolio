@@ -1,12 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Istuti Sharma | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- 🌌 BACKGROUND -->
 <div class="background">
     <span></span>
     <span></span>
@@ -14,7 +17,7 @@
     <span></span>
 </div>
 
-<!-- NAV -->
+<!-- 🧭 NAVBAR -->
 <nav>
     <h2>Istuti</h2>
     <div>
@@ -26,13 +29,13 @@
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- 🦸 HERO -->
 <section class="hero">
     <div class="hero-left">
         <h1>Istuti Sharma</h1>
         <p>Cyber Security Student | Future Defender of Systems</p>
         <span class="tagline">
-            I explore systems, break assumptions, and learn how to secure what others overlook.
+            I explore systems, break assumptions, and secure what others overlook.
         </span>
     </div>
 
@@ -41,19 +44,20 @@
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="about-section">
+<!-- 🧠 ABOUT -->
+<section id="about" class="about-section hidden">
     <div class="about-box">
         <h2>About</h2>
         <p>
-            I’m a BCA Cyber Security student learning how systems work, where they break, and how they can be made stronger.
-            I like understanding patterns, questioning systems, and building stronger solutions.
+            I’m a BCA Cyber Security student learning how systems work, where they break, 
+            and how they can be made stronger. I enjoy analyzing patterns, questioning 
+            assumptions, and building secure solutions.
         </p>
     </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="skills-section">
+<!-- 🧩 SKILLS -->
+<section id="skills" class="skills-section hidden">
     <h2>Skills</h2>
 
     <div class="skills-container">
@@ -64,8 +68,9 @@
         <div class="skill-bubble" onclick="openSkill('git')">Git & GitHub</div>
     </div>
 </section>
-    <!-- PROJECTS -->
-<section id="projects" class="projects-section">
+
+<!-- 💼 PROJECTS -->
+<section id="projects" class="projects-section hidden">
     <h2>Projects</h2>
 
     <div class="projects-grid">
@@ -87,56 +92,59 @@
         <div class="project-card">
             <h3>Cyber Security Learning</h3>
             <p>
-                Exploring vulnerabilities, system security concepts, and learning how to defend systems.
+                Exploring vulnerabilities, system security concepts, and defensive techniques.
             </p>
         </div>
 
     </div>
 </section>
 
-<!-- CERTIFICATES -->
-<section id="certificates" class="certificates-section">
+<!-- 🏆 CERTIFICATES -->
+<section id="certificates" class="certificates-section hidden">
     <h2>Certificates</h2>
 
-   <div class="certificate-grid">
-
-    <img src="cert1.png" class="certificate-card" onclick="openCert(this.src)">
-    <img src="cert2.png" class="certificate-card" onclick="openCert(this.src)">
-    <img src="cert3.png" class="certificate-card" onclick="openCert(this.src)">
-    <img src="cert4.png" class="certificate-card" onclick="openCert(this.src)">
-
-</div> 
+    <div class="certificate-grid">
+        <img src="cert1.png" class="certificate-card" onclick="openCert(this.src)">
+        <img src="cert2.png" class="certificate-card" onclick="openCert(this.src)">
+        <img src="cert3.png" class="certificate-card" onclick="openCert(this.src)">
+        <img src="cert4.png" class="certificate-card" onclick="openCert(this.src)">
+    </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
+<!-- 📩 CONTACT -->
+<section id="contact" class="contact-section hidden">
     <div class="contact-box">
         <h2>Contact</h2>
 
         <form id="contact-form">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Message"></textarea>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Message" required></textarea>
             <button type="submit">Send</button>
         </form>
     </div>
 </section>
 
-<!-- POPUP -->
+<!-- 🎯 SKILL POPUP -->
 <div id="skill-popup" class="popup">
-  <div class="popup-content skill-popup">
+    <div class="popup-content skill-popup">
         <span class="close" onclick="closePopup()">×</span>
         <h3 id="skill-title"></h3>
         <p id="skill-description"></p>
     </div>
 </div>
-<div id="cert-popup" class="popup">
-  <div class="popup-content cert-popup">
-        <span class="close" onclick="closeCert()">×</span>
-        <img id="cert-image" style="width:100%; border-radius:10px;">
-    </div>
-</div>    
 
+<!-- 🖼 CERT POPUP -->
+<div id="cert-popup" class="popup">
+    <div class="popup-content cert-popup">
+        <span class="close" onclick="closeCert()">×</span>
+        <img id="cert-image">
+    </div>
+</div>
+
+<!-- ⚙️ SCRIPT -->
 <script src="script.js"></script>
 
 </body>
+</html>
+```
