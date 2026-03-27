@@ -1,7 +1,4 @@
-```css id="finalclean1"
-/* =========================
-   RESET
-========================= */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -15,9 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   🌌 BACKGROUND BLOBS
-========================= */
+/* 🌌 BACKGROUND BLOBS */
 .background {
     position: fixed;
     width: 100%;
@@ -30,8 +25,7 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(90px);
-    animation: float 25s infinite ease-in-out;
-    will-change: transform;
+    animation: float 20s infinite ease-in-out;
 }
 
 .background span:nth-child(1) {
@@ -67,116 +61,81 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(80px, -60px); }
-    50% { transform: translate(-60px, 80px); }
-    75% { transform: translate(60px, 40px); }
-    100% { transform: translate(0, 0); }
+    0% { transform: translate(0,0); }
+    50% { transform: translate(100px, -120px); }
+    100% { transform: translate(0,0); }
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAV */
 nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 50px;
     background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav a {
     color: #c084fc;
-    margin-left: 20px;
+    margin-left: 15px;
     text-decoration: none;
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: white;
+    color: #fff;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .hero {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 120px 80px;
+    padding: 120px 20px;
+    text-align: center;
 }
 
-.hero-left h1 {
-    font-size: 70px;
+.hero h1 {
+    font-size: 60px;
     background: linear-gradient(270deg, #d8b4fe, #a855f7, #9333ea);
     -webkit-background-clip: text;
     color: transparent;
 }
 
-.hero-left p {
-    font-size: 22px;
+.hero p {
+    font-size: 20px;
     margin-top: 10px;
 }
 
 .tagline {
-    font-size: 16px;
+    display: block;
     margin-top: 10px;
     color: #c084fc;
 }
 
-.hero-right img {
-    width: 280px;
-    height: 280px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: white;
-    padding: 15px;
-
-    box-shadow: 
-        0 0 40px rgba(168, 85, 247, 0.5),
-        0 0 80px rgba(168, 85, 247, 0.3);
-
-    transition: 0.4s;
-}
-
-.hero-right img:hover {
-    transform: scale(1.1);
-}
-
-/* =========================
-   HEADINGS
-========================= */
-h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+/* SECTIONS */
+section {
+    padding: 60px;
     text-align: center;
 }
 
-/* =========================
-   ABOUT
-========================= */
-.about-section {
-    display: flex;
-    justify-content: center;
-    padding: 60px;
+h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
 }
 
+/* ABOUT */
 .about-box {
     max-width: 500px;
-    padding: 30px;
+    margin: auto;
+    padding: 25px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 15px;
-    backdrop-filter: blur(10px);
 }
 
-/* =========================
-   SKILLS
-========================= */
-.skills-section {
-    text-align: center;
-    padding: 60px;
-}
-
+/* SKILLS */
 .skill-bubble {
     display: inline-block;
     margin: 10px;
@@ -190,23 +149,13 @@ h2 {
 .skill-bubble:hover {
     background: #a855f7;
     box-shadow: 0 0 15px #a855f7;
-    transform: translateY(-3px);
 }
 
-/* =========================
-   PROJECTS
-========================= */
-.projects-section {
-    text-align: center;
-    padding: 60px;
-}
-
+/* PROJECTS */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 20px;
 }
 
 .project-card {
@@ -214,55 +163,33 @@ h2 {
     padding: 20px;
     border-radius: 15px;
     transition: 0.3s;
-    cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 
-/* =========================
-   CERTIFICATES
-========================= */
-.certificates-section {
-    text-align: center;
-    padding: 60px;
-}
-
-.certificate-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    justify-items: center;
-}
-
-.certificate-card {
+/* CERTIFICATES */
+.certificate-grid img {
     width: 200px;
-    height: 140px;
+    margin: 10px;
     cursor: pointer;
+    border-radius: 10px;
     transition: 0.3s;
 }
 
-.certificate-card:hover {
+.certificate-grid img:hover {
     transform: scale(1.05);
 }
 
-/* =========================
-   CONTACT
-========================= */
-.contact-section {
-    display: flex;
-    justify-content: center;
-    padding: 60px;
-}
-
+/* CONTACT */
 .contact-box {
     width: 400px;
-    padding: 30px;
+    margin: auto;
+    padding: 25px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 15px;
-    backdrop-filter: blur(10px);
 }
 
 input, textarea {
@@ -284,47 +211,30 @@ button {
     cursor: pointer;
 }
 
-/* =========================
-   POPUP (FIXED CORRECTLY)
-========================= */
+/* 💜 POPUP (FIXED) */
 .popup {
+    display: none;
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
 
-    display: flex;
+    background: rgba(0,0,0,0.8);
+
     justify-content: center;
     align-items: center;
 
-    /* 🔥 IMPORTANT FIX */
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
+    z-index: 1000;
 }
 
-/* WHEN ACTIVE */
-.popup.active {
-    opacity: 1;
-    pointer-events: all;
-}
 .popup-content {
     background: #111;
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
+    width: 320px;
     text-align: center;
     animation: pop 0.3s ease;
-}
-
-.skill-popup {
-    width: 300px;
-}
-
-.cert-popup {
-    width: 60%;
-    max-width: 700px;
 }
 
 .close {
@@ -333,7 +243,7 @@ button {
     font-size: 20px;
 }
 
-/* popup animation */
+/* ✨ POPUP ANIMATION */
 @keyframes pop {
     from {
         transform: scale(0.8);
@@ -345,17 +255,8 @@ button {
     }
 }
 
-/* =========================
-   SCROLL ANIMATION
-========================= */
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+/* CERT IMAGE */
+#cert-image {
+    width: 100%;
+    border-radius: 10px;
 }
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-```
