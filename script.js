@@ -1,5 +1,13 @@
 ```javascript id="m3z7x9"
 // =========================
+// 🚫 FORCE POPUPS CLOSED ON LOAD
+// =========================
+
+window.onload = function () {
+    document.getElementById("skill-popup").style.display = "none";
+    document.getElementById("cert-popup").style.display = "none";
+};
+// =========================
 // 🌟 SKILL DATA
 // =========================
 
