@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Istuti Sharma | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🌌 BACKGROUND BLOBS -->
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- NAV -->
+<nav>
+    <h2>Istuti</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left">
+        <h1>Istuti Sharma</h1>
+        <p>Cyber Security Student | Future Defender</p>
+        <span class="tagline">
+            I explore systems, break assumptions, and secure what others overlook.
+        </span>
+    </div>
+
+    <div class="hero-right">
+        <img src="logo.png" alt="Logo">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+   <div class="about-box">
+    <h2>About Me</h2>
+    <p>
+        I don’t just learn systems — I question them.
+    </p>
+
+    <p>
+        I’m a Cyber Security student exploring how things break, why they fail, 
+        and how they can be made stronger.
+    </p>
+
+    <p>
+        From building websites to understanding vulnerabilities, 
+        I’m learning to think like both a creator and a defender.
+    </p>
+</div>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+    <h2>Skills</h2>
+
+    <div class="skills-container">
+        <div class="skill-bubble" onclick="openSkill('html')">HTML</div>
+        <div class="skill-bubble" onclick="openSkill('css')">CSS</div>
+        <div class="skill-bubble" onclick="openSkill('js')">JavaScript</div>
+        <div class="skill-bubble" onclick="openSkill('node')">Node.js</div>
+        <div class="skill-bubble" onclick="openSkill('git')">Git & GitHub</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <h3>Password Strength Checker</h3>
+            <p>Analyzes password strength and improves security.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>Interactive personal portfolio with animations.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Cyber Security Learning</h3>
+            <p>Exploring vulnerabilities and defense systems.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="certificates-section">
+    <h2>Certificates</h2>
+
+    <div class="certificate-grid">
+        <img src="cert1.png" onclick="openCert(this.src)">
+        <img src="cert2.png" onclick="openCert(this.src)">
+        <img src="cert3.png" onclick="openCert(this.src)">
+        <img src="cert4.png" onclick="openCert(this.src)">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+    <div class="contact-box">
+        <h2>Contact</h2>
+
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- SKILL POPUP -->
+<div id="skill-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">×</span>
+        <h3 id="skill-title"></h3>
+        <p id="skill-description"></p>
+    </div>
+</div>
+
+<!-- CERT POPUP -->
+<div id="cert-popup" class="popup">
+    <div class="popup-content cert-popup">
+        <span class="close" onclick="closeCert()">×</span>
+        <img id="cert-image">
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
