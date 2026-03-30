@@ -155,4 +155,8 @@ if (form) {
             alert("Something went wrong");
         }
     });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1f7c348e50a8525cd9ddb89d21619b6a994f8c35
