@@ -119,7 +119,7 @@ if (form) {
         const apiUrl =
             window.location.hostname === "localhost"
                 ? "http://localhost:3000/contact"
-                : "https://your-render-url.onrender.com/contact";
+                : "https://istuti-portfolio.onrender.com/";
 
         try {
             const res = await fetch(apiUrl, {
