@@ -1,22 +1,21 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static(__dirname)); // serve files
 
 // 🌐 SHOW WEBSITE
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Static files
-app.use(express.static(__dirname));
-
-// 🔗 CONNECT TO MYSQL
+// 🔗 CONNECT TO MYSQL (Railway)
 const db = mysql.createConnection({
     host: "hopper.proxy.rlwy.net",
     user: "root",
@@ -28,13 +27,13 @@ const db = mysql.createConnection({
 // CONNECT
 db.connect((err) => {
     if (err) {
-        console.log("❌ Connection failed:", err);
+        console.log("❌ DB Connection failed:", err);
     } else {
         console.log("✅ MySQL Connected");
     }
 });
 
-// CREATE TABLE
+// 📦 CREATE TABLE
 db.query(`
     CREATE TABLE IF NOT EXISTS contacts (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -44,7 +43,7 @@ db.query(`
     )
 `);
 
-// SAVE FORM
+// 📩 SAVE FORM
 app.post("/contact", (req, res) => {
     const { name, email, message } = req.body;
 
@@ -60,7 +59,9 @@ app.post("/contact", (req, res) => {
     });
 });
 
-// START SERVER
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+// 🚀 IMPORTANT FOR RENDER
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
 });
